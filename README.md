@@ -1,2 +1,2 @@
 # cricket-agent
-Agentic AI
+Agentic AI solution
