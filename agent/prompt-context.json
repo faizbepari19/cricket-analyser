@@ -1,0 +1,33 @@
+{
+  "tables": {
+    "ball_by_ball": [
+      "match_id", "innings", "over", "ball", "runs_batsman", "runs_extras",
+      "runs_total", "extra_type", "dismissal_kind", "dismissed_player", "six",
+      "four", "striker_id", "bowler_id", "non_striker_id", "match_type", "date_start",
+      "venue", "city", "country", "toss_winner", "toss_decision", "player_of_match",
+      "series_name", "result", "winner", "match_url", "home_team_id", "away_team_id", "match_format"
+    ],
+    "matches": [
+      "match_id", "match_type", "date_start", "venue", "city", "country",
+      "toss_winner", "toss_decision", "player_of_match", "series_name", "result",
+      "winner", "match_url", "home_team_id", "away_team_id"
+    ],
+    "players": [
+      "player_id", "player_name", "batting_hand", "bowling_style", "country"
+    ],
+    "teams": [
+      "team_id", "team_name", "country"
+    ]
+  },
+  "domain_rules": [
+    "For 'most matches', count DISTINCT match_id per player.",
+    "For 'since <year>', use m.date_start >= '<year>-01-01'.",
+    "Test matches are match_type = 'Test'.",
+    "Join ball_by_ball.striker_id or bowler_id to players.player_id.",
+    "Join ball_by_ball.match_id to matches.match_id.",
+    "Always group by player_name when finding player stats.",
+    "Use exact table and column names",
+    "Use exact values for `venue` and `winner` from the schema, never abbreviations.",
+    "Example mappings: MCG → Melbourne Cricket Ground, AUS → Australia"
+  ]
+}
